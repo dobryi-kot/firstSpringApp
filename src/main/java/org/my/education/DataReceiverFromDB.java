@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
    и не несет в себе никакой другой смысловой нагрузки
  */
 @Service
-@Qualifier("DB")
+@Qualifier("fromDB")
 public class DataReceiverFromDB implements DataReceiver {
     public boolean loadData() {
-        System.out.println("Данный метод не требует реализации в рамках поставленной задачи");
+        System.out.println("Метод класса DataReceiverFromDB не требует реализации в рамках поставленной задачи");
         return true;
     }
 }

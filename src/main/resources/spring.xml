@@ -15,4 +15,7 @@
     <bean class="org.my.education.DataProcessor" id="data_Processor">
     </bean>
 
+    <bean class="org.my.education.DataWriterToFile" id="data_WriterToFile">
+    </bean>
+
 </beans>

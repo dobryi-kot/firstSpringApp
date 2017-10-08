@@ -4,10 +4,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
-@Qualifier("file")
+@Qualifier("fromFile")
 public class DataReceiverFromFile implements DataReceiver {
     public boolean loadData() {
-        System.out.println("Ебать-копать, у меня получилось!!!");
+        /*
+        В данном методе будет описана логика загрузки данных из файлов в файловой системе
+         */
+        System.out.println("Здесь будет описана загрузка данных из файловой системы");
         return true;
     }
 }
