@@ -6,16 +6,16 @@
 
     <context:component-scan base-package="org.my.education" />
 
-    <bean class="org.my.education.DataReceiverFromFile" id="data_ReceiverFromFile" primary="true">
+    <bean class="org.my.education.DataReceiver.DataReceiverFromFile" id="data_ReceiverFromFile" primary="true">
     </bean>
 
-    <bean class="org.my.education.DataReceiverFromDB" id="data_ReceiverFromDB">
+    <bean class="org.my.education.DataReceiver.DataReceiverFromDB" id="data_ReceiverFromDB">
     </bean>
 
     <bean class="org.my.education.DataProcessor" id="data_Processor">
     </bean>
 
-    <bean class="org.my.education.DataWriterToFile" id="data_WriterToFile">
+    <bean class="org.my.education.DataWriter.DataWriterToFile" id="data_WriterToFile">
     </bean>
 
 </beans>

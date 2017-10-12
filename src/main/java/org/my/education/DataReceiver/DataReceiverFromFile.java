@@ -1,4 +1,4 @@
-package org.my.education;
+package org.my.education.DataReceiver;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;

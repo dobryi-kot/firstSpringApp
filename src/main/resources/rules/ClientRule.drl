@@ -1,0 +1,11 @@
+package org.my.education
+dialect  "mvel"
+
+import org.my.education.SubjectArea.Client
+
+rule "ClientIsBigRule"
+    when
+        $client : Client( subscribers.size > 100)
+    then
+        $client.setBig(true);
+end

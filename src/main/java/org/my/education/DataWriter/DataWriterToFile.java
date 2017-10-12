@@ -1,4 +1,4 @@
-package org.my.education;
+package org.my.education.DataWriter;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -10,6 +10,7 @@ public class DataWriterToFile implements DataWriter {
         /*
        Здесь будет находиться логика сохранения обработанной информации
          */
+        System.out.println("Здесь будет находиться логика сохранения обработанной информации");
         return true;
     }
 }
