@@ -22,6 +22,19 @@ public class DataWriterToFile implements DataWriter {
 
     public boolean uploadData(ArrayList<Client> clients, Settings settings) {
 
+        File outboxDir = new File(settings.getValue(Settings.PROPERTY.OUTBOXPATH));
+        if ( !outboxDir.exists() )
+            if ( outboxDir.mkdir() )
+                log.info("Creating output directory.");
+            else {
+                log.info("Fail to creating output directory");
+                return false;
+            }
+        else if ( !outboxDir.isDirectory() ) {
+                log.info("Outbox path from parameters is not a directory!");
+                return false;
+        }
+
         for ( Client client : clients ) {
             Gson gson = new GsonBuilder()
                     .setPrettyPrinting()

@@ -17,7 +17,21 @@ public class JsonGenerator {
     private Logger log = Logger.getLogger(JsonGenerator.class.getName());
 
     public boolean generateJson(int count, String generatePath) {
+
         log.info("Generating " + count + " testing JSONs in " + generatePath);
+
+        File inboxDir = new File(generatePath);
+        if ( !inboxDir.exists() )
+            if ( inboxDir.mkdir() )
+                log.info("Creating input directory.");
+            else {
+                log.info("Fail to creating input directory");
+                return false;
+            }
+        else if ( !inboxDir.isDirectory() ) {
+            log.info("Inbox path from parameters is not a directory!");
+            return false;
+        }
 
         final Random subscribersCount = new Random();
         final Random subscriberSpent = new Random();
