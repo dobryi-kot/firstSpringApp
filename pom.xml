@@ -24,7 +24,7 @@
             <version>4.3.11.RELEASE</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.drools/drools-compiler -->
+         <!--https://mvnrepository.com/artifact/org.drools/drools-compiler-->
         <dependency>
             <groupId>org.drools</groupId>
             <artifactId>drools-compiler</artifactId>
@@ -63,7 +63,7 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-        </plugins>
+       </plugins>
     </build>
 
 </project>

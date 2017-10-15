@@ -31,7 +31,7 @@ public class DataProcessor {
     private void applyRules() {
         KieServices kieServices = KieServices.Factory.get();
         KieContainer kieContainer = kieServices.getKieClasspathContainer();
-        KieSession kieSession = kieContainer.newKieSession("timeCalculator");
+        KieSession kieSession = kieContainer.newKieSession("clientCalculator");
 
         for (Client client: clients) {
             kieSession.insert(client);
@@ -40,12 +40,12 @@ public class DataProcessor {
         kieSession.fireAllRules();
     }
 
-    // А здесь и вовсе непонятное мне ругательство - Access can be package-private
     void processData(Settings settings) {
         if ( !dataReceiver.loadData(clients, settings) ) {
             log.info("Error loading data from inbox path!");
+            return;
         }
-        log.info("Загружено " + clients.size() + " клиентов");
+        log.info("Loaded " + clients.size() + " clients");
         applyRules();
         //TODO: remove files
         if ( !dataWriter.uploadData(clients, settings) ) {

@@ -12,10 +12,14 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 @Service
 @Qualifier("toFile")
 public class DataWriterToFile implements DataWriter {
+
+    private Logger log = Logger.getLogger(DataWriter.class.getName());
+
     public boolean uploadData(ArrayList<Client> clients, Settings settings) {
 
         for ( Client client : clients ) {
@@ -33,7 +37,7 @@ public class DataWriterToFile implements DataWriter {
             {
                 outputFile.write(json.getBytes());
             } catch (IOException exp) {
-                System.out.println("Input/output error: " + exp.getMessage());
+                log.info("Input/output error: " + exp.getMessage());
                 return false;
             }
         }

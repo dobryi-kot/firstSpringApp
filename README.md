@@ -12,7 +12,7 @@ outbox = src/main/resources/outbox
 Вызов из командной строки:\
 usage: clientCalculator\
  -g,--generate <arg>        generate ARG count of JSON files for test\
- -p,--properties-path <arg> set path to config.property file to ARG\
+ -p,--properties-path <arg> set path to config.property file to ARG (by default is "./config.properties")\
  -h,--help                  print this help information
  
  Вызов без параметров предполагает наличие входящих json-файлов в каталоге <inbox>\
