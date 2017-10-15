@@ -1,7 +1,7 @@
 package org.my.education
 dialect  "mvel"
 
-import org.my.education.SubjectArea.Client
+import org.my.education.Domain.Client
 
 rule "ClientIsBigRule"
     when

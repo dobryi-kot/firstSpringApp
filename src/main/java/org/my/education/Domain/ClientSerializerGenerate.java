@@ -1,10 +1,10 @@
-package org.my.education.SubjectArea;
+package org.my.education.Domain;
 
 import com.google.gson.*;
 
 import java.lang.reflect.Type;
 
-public class ClientSerializer implements JsonSerializer<Client> {
+public class ClientSerializerGenerate implements JsonSerializer<Client> {
     @Override
     public JsonElement serialize(Client client, Type typeOfClient, JsonSerializationContext context) {
         JsonObject result = new JsonObject();

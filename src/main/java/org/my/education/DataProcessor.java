@@ -5,20 +5,24 @@ import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.my.education.DataReceiver.DataReceiver;
 import org.my.education.DataWriter.DataWriter;
-import org.my.education.SubjectArea.Client;
+import org.my.education.Domain.Client;
+import org.my.education.util.Settings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 @Service
 public class DataProcessor {
+
+    private Logger log = Logger.getLogger(DataProcessor.class.getName());
 
     @Autowired
 //    @Qualifier("file")
     private DataReceiver dataReceiver;
 
-    // Почему то на этих двух полях IDEA подсказывает, что инекция полей это ай-ай-яй
+    // For this two fields IDEA says, that field injection is not good. I don't understand this (((
     @Autowired
     private DataWriter dataWriter;
 
@@ -37,9 +41,15 @@ public class DataProcessor {
     }
 
     // А здесь и вовсе непонятное мне ругательство - Access can be package-private
-    public void proccessData() {
-        dataReceiver.loadData();
+    void processData(Settings settings) {
+        if ( !dataReceiver.loadData(clients, settings) ) {
+            log.info("Error loading data from inbox path!");
+        }
+        log.info("Загружено " + clients.size() + " клиентов");
         applyRules();
-        dataWriter.uploadData();
+        //TODO: remove files
+        if ( !dataWriter.uploadData(clients, settings) ) {
+            log.info("Error writing data into outbox path!");
+        }
     }
 }

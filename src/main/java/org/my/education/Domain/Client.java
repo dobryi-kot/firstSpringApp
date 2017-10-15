@@ -1,19 +1,19 @@
-package org.my.education.SubjectArea;
+package org.my.education.Domain;
 
 import java.util.ArrayList;
 
 public class Client {
 
-    private int id; // id клиента
-    private ArrayList<Subscriber> subscribers = new ArrayList<>(); // список подписчиков клиента
-    private int spentTotal; // общее количество потраченных средств
+    private long id;
+    private ArrayList<Subscriber> subscribers = new ArrayList<>();
+    private long spentTotal;
     private boolean isBig;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) { this.id = id; }
+    public void setId(long id) { this.id = id; }
 
     public ArrayList<Subscriber> getSubscribers() {
         return subscribers;
@@ -27,11 +27,11 @@ public class Client {
         subscribers.add(subscriber);
     }
 
-    public int getSpentTotal() {
+    public long getSpentTotal() {
         return spentTotal;
     }
 
-    public void setSpentTotal(int spentTotal) {
+    public void setSpentTotal(long spentTotal) {
         this.spentTotal = spentTotal;
     }
 
