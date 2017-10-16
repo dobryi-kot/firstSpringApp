@@ -33,6 +33,11 @@ public class DataProcessor {
         KieContainer kieContainer = kieServices.getKieClasspathContainer();
         KieSession kieSession = kieContainer.newKieSession("clientCalculator");
 
+        if ( kieSession == null ) {
+            log.info("Unable to create kieSession.");
+            return;
+        }
+
         for (Client client: clients) {
             kieSession.insert(client);
         }
